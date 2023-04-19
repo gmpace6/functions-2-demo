@@ -2,9 +2,25 @@
 ////// CALCULATOR //////
 ////////////////////////
 
-// CODE HERE
+const add = (num1, num2) => num1 + num2
 
+const sub = (num1, num2) => num1 - num2
 
+const mult = (num1, num2) => num1 * num2
+
+const div = (num1, num2) => num1 / num2
+
+const calculator = (num1, num2, callback) => {
+if (!isNaN(num1) && !isNaN(num2)) {
+num1 = +num1
+num2 = +num2
+let callbackResult = callback(num1, num2)
+return callbackResult
+} else {
+  return 'Please provide two valid numbers.'
+}
+}
+console.log(calculator(8, 9, div))
 ///////////////////////
 ////// PET STORE //////
 ///////////////////////
