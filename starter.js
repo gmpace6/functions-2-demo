@@ -70,7 +70,7 @@ const catProducts = [
     displayPrice: 10.00
   }, 
   {
-    name: 'straching post',
+    name: 'scratching post',
     colors: ['tan'],
     category: 2,
     inventory: 40,
@@ -79,9 +79,23 @@ const catProducts = [
   }
 ]
 
-// CODE HERE
+const applyPercentDiscount = (product, discount) => {
+  product.displayPrice = product.basePrice * (1 - discount)
+}
 
+const applyFlatDiscount = (product, discount) => {
+  product.displayPrice = product.basePrice - discount
+}
 
+function applyDiscounts(productsList, discountTypeCallback, discountAmount) {
+  for (let i = 0; i < productsList.length; i++) {
+    discountTypeCallback(productsList[i], discountAmount)
+  }
+}
+
+applyDiscounts(dogProducts, applyFlatDiscount, 1.50)
+
+console.log(dogProducts)
 ////////////////////////
 ////// SANDWICHES //////
 ////////////////////////
