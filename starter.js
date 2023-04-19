@@ -87,15 +87,17 @@ const applyFlatDiscount = (product, discount) => {
   product.displayPrice = product.basePrice - discount
 }
 
-function applyDiscounts(productsList, discountTypeCallback, discountAmount) {
+function applyDiscounts(productsList, discountTypeCallback, discountAmount, category) {
   for (let i = 0; i < productsList.length; i++) {
+    if (productsList[i].category === category) {
     discountTypeCallback(productsList[i], discountAmount)
+    }
   }
 }
 
-applyDiscounts(dogProducts, applyFlatDiscount, 1.50)
+applyDiscounts(catProducts, applyPercentDiscount, .25, 2)
 
-console.log(dogProducts)
+console.log(catProducts)
 ////////////////////////
 ////// SANDWICHES //////
 ////////////////////////
